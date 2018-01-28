@@ -1,0 +1,15 @@
+
+{% block content %}
+<br><br>
+{{ form.hidden_tag() }}
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+
+  <form action="{{url_for('album_answers')}}" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}<br>
+    {{ form.question.label }} {{ form.question() }}<br>
+    {{ form.submit() }}<br>
+  </form>
+{% endblock %}
